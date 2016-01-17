@@ -1,0 +1,4 @@
+ffmpeg -s 320x240 -f v4l2 -i /dev/video0 -f mpeg1video -b 800k -r 30 http://127.0.0.1:8082/1234/320/240
+sudo nodejs stream-server.j 1234
+ nodejs piService.js 
+sudo modprobe bcm2835-v4l2

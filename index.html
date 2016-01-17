@@ -1,0 +1,65 @@
+<!-- web client for a simple server-side application to demonstrate running a node API Appserver on a Raspberry Pi to display I/O values in a web browser -->
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+ <!--       <meta name="viewport" id="vp" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" />
+-->
+<meta name="viewport" id="vp" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width, height=device-height"/>
+        <title>Home Pi</title>
+        <link href='https://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet" type="text/css" href="index.css"/>
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="client.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="titleImage">
+        	     <img class="titleImage" src="./images/cake.png"/>
+            </div>
+            <div class="titleDiv">
+                <H1 class="title">Magic Button here, try click it</H1>
+                <H1 class="title">&darr;</H1>
+            </div>
+            <div class="buttonContainer">
+      <!--          <button id="23" class ="greenButton lightButton" class="myButton">Green</button>
+                <button id="25" class ="yellowButton lightButton" class="myButton">Yellow</button> 
+      -->
+            <a href="#" id="23" class="button">&#xF011;</a>
+            <span></span>
+            </div>
+       <div id="canvasDiv">
+       <canvas id="videoCanvas" >
+		<p>
+			Please use a browser that supports the Canvas Element, like
+			<a href="http://www.google.com/chrome">Chrome</a>,
+			<a href="http://www.mozilla.com/firefox/">Firefox</a>,
+			<a href="http://www.apple.com/safari/">Safari</a> or Internet Explorer 10
+		</p>
+	</canvas>
+	<script type="text/javascript" src="jsmpg.js"></script>
+	<script type="text/javascript">
+		// Setup the WebSocket connection and start the player
+		var client = new WebSocket( 'ws://98.207.185.80:8084/1234' );
+
+		var canvas = document.getElementById('videoCanvas');
+		var player = new jsmpeg(client, {canvas:canvas});
+	</script>
+    </div>
+    <div id="backgroundaudio">
+        <i class="icon-volume-up"></i>
+        <audio id="audioPlayer"  controls="" loop="" preload="">
+        <source src="./mediaSource/bestHBDsongever.ogg" type="audio/ogg"></source>
+        <source src="./mediaSource/bestHBDsongever.mp3" type="audio/mpeg"></source>
+        Your browser does not support the audio element.
+</audio>
+    </div>
+    <div><br/></div>
+    <div><br/></div>
+        </div>
+<!--         <div id="inputs">
+            <div id="input_23"><p>...</p></div>
+            <div id="input_25"><p>...</p></div>    
+        </div> -->
+    </body>
+</html>
